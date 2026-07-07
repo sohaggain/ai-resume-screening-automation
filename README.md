@@ -44,6 +44,16 @@ The connected Google Sheet records each applicant with:
 | Outcome routing | Make.com Router |
 | Candidate communication | Email module |
 
+## Companion Automation: Interview Approval Trigger
+
+A lightweight second Make.com scenario extends this system for manual override cases — for example, when a hiring manager wants to approve a candidate for interview directly in the spreadsheet, independent of the AI score.
+
+1. **Google Sheets (Watch Changes)** — monitors the tracking sheet for any cell edit.
+2. **Filter** — only proceeds if the edited cell is in the "Interview" column (column 10) and its new value is `TRUE`.
+3. **Email (Send an Email)** — automatically sends an interview-invitation email to the candidate in that row, with a scheduling link.
+
+This means a hiring manager can either let the AI scoring rubric drive the outcome automatically, or manually tick "Interview" on any row to trigger the same candidate-facing email — giving the system both a fully automated mode and a human-in-the-loop override, without needing two different tools.
+
 ## Setup
 
 1. Import the Make.com blueprint (`.json`) into a new scenario.
